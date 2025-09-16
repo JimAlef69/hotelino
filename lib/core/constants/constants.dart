@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class AppConstants {
-  static const String hotelData = "assets/data/hotels.json";
+  static const String hotelData = 'assets/data/hotels.json';
   static const String baeImageUrl =
-      "https://dunijet.ir/content/projects/hotelino";
+      'https://dunijet.ir/content/projects/hotelino';
 }
 
 class AppColors {
   static const Color primry = Color(0xFFB27258);
 
+  //light colors
+  static const Color lightText = Colors.black;
+  static const Color lightHint = Colors.grey;
+  static const Color lightInputFill = Color(0xFFF5F5F5);
+  static const Color lightBorder = Colors.grey;
+  static const Color lightFocusedBorder = Colors.brown;
+
+  //dark
+  
   //light colors
   static const Color darkText = Colors.white;
   static const Color darkHint = Colors.grey;
