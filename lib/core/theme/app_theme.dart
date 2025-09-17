@@ -7,7 +7,7 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.light,
       fontFamily: 'sahel',
-      colorSchemeSeed: AppColors.primry,
+  colorSchemeSeed: AppColors.primary,
       appBarTheme: const AppBarTheme(
         elevation: 0,
         titleTextStyle: TextStyle(
@@ -53,7 +53,7 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           elevation: 0,
-          backgroundColor: AppColors.primry,
+          backgroundColor: AppColors.primary,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -98,7 +98,7 @@ class AppTheme {
     return baseLight.copyWith(
       colorScheme: baseLight.colorScheme.copyWith(
         outline: Colors.grey[500],
-        primaryFixed: AppColors.primry,
+  primaryFixed: AppColors.primary,
         surfaceContainerLow:Colors.grey[200], 
       ),
     );
@@ -112,7 +112,7 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.dark,
       fontFamily: 'sahel',
-      colorSchemeSeed: AppColors.primry,
+  colorSchemeSeed: AppColors.primary,
       appBarTheme: const AppBarTheme(
         elevation: 0,
         titleTextStyle: TextStyle(
@@ -158,7 +158,7 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           elevation: 0,
-          backgroundColor: AppColors.primry,
+          backgroundColor: AppColors.primary,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -204,7 +204,7 @@ class AppTheme {
     return baseDark.copyWith(
       colorScheme: baseDark.colorScheme.copyWith(
         outline: Colors.grey[500],
-        primaryFixed: AppColors.primry,
+         primaryFixed: AppColors.primary,
       ),
     );
   }

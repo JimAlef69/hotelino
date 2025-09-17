@@ -7,8 +7,10 @@ class MyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        Text("data"),
-        Text("data"),
+        Text('Hello, World!'),
+        Icon(Icons.star),
+        SizedBox.shrink(),
+        Card(child: Text('Card Content')),
       ],
     );
   }
