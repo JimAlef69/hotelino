@@ -3,6 +3,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hotelino/bootstrap.dart';
 import 'package:hotelino/core/theme/theme_provider.dart';
 import 'package:hotelino/page_screen.dart';
+import 'package:hotelino/routes/app_route.dart';
 import 'package:provider/provider.dart';
 
 void main() async{
@@ -59,7 +60,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     return Consumer<ThemeProvider>(
       builder: (BuildContext context, ThemeProvider value, Widget? child) { 
         return MaterialApp(
-          title: 'Flutter Demo',
+          title: 'Hotelino',
+          routes: AppRoute.routes,
+          initialRoute: AppRoute.onboarding,
           theme: value.brightness == Brightness.light
               ? ThemeData.light()
               : ThemeData.dark(),
