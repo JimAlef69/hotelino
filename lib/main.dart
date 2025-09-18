@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:hotelino/bootstrap.dart';
 import 'package:hotelino/core/theme/theme_provider.dart';
 import 'package:hotelino/page_screen.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp( 
+void main() async{
+  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await lazyBootstrap();
+  FlutterNativeSplash.remove();
+
+  runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
