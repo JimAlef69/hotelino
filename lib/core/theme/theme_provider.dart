@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
+
 class ThemeProvider extends ChangeNotifier {
   Brightness _brightness;
-  TheProvider(this._brightness);
+  ThemeProvider(this._brightness);
 
   Brightness get brightness => _brightness;
 
