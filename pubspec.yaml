@@ -99,7 +99,7 @@ flutter:
   fonts:
     - family: sahel
       fonts:
-        - asset: asstes/font/sahel.ttf
+        - asset: assets/font/sahel.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

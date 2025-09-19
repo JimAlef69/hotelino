@@ -5,7 +5,7 @@ import 'package:hotelino/core/theme/theme_provider.dart';
 import 'package:hotelino/routes/app_route.dart';
 import 'package:provider/provider.dart';
 
-void main() async{
+void main() async {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
@@ -16,11 +16,13 @@ void main() async{
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => ThemeProvider(WidgetsBinding.
-          instance.platformDispatcher.platformBrightness),
+          create: (_) => ThemeProvider(
+            WidgetsBinding.instance.platformDispatcher.platformBrightness,
+          ),
         ),
       ],
-      child: const MyApp(), ),
+      child: const MyApp(),
+    ),
   );
 }
 
@@ -32,8 +34,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
-
-@override
+  @override
   void initState() {
     //for listening to system theme changes
     WidgetsBinding.instance.addObserver(this);
@@ -49,17 +50,20 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   void didChangePlatformBrightness() {
-    final brightness = WidgetsBinding.instance.platformDispatcher.platformBrightness;
+    final brightness =
+        WidgetsBinding.instance.platformDispatcher.platformBrightness;
     Provider.of<ThemeProvider>(context, listen: false).updateTheme(brightness);
     super.didChangePlatformBrightness();
   }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeProvider>(
-      builder: (BuildContext context, ThemeProvider value, Widget? child) { 
+      builder: (BuildContext context, ThemeProvider value, Widget? child) {
         return MaterialApp(
           title: 'Hotelino',
+          debugShowCheckedModeBanner: false,
           routes: AppRoute.routes,
           initialRoute: AppRoute.home,
           theme: value.brightness == Brightness.light
