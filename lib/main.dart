@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hotelino/bootstrap.dart';
 import 'package:hotelino/core/theme/theme_provider.dart';
-import 'package:hotelino/page_screen.dart';
 import 'package:hotelino/routes/app_route.dart';
 import 'package:provider/provider.dart';
 
@@ -62,11 +61,10 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         return MaterialApp(
           title: 'Hotelino',
           routes: AppRoute.routes,
-          initialRoute: AppRoute.onboarding,
+          initialRoute: AppRoute.home,
           theme: value.brightness == Brightness.light
               ? ThemeData.light()
               : ThemeData.dark(),
-          home: const MyHomePage(title: 'Flutter Demo Home Page'),
         );
       },
     );

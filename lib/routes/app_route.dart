@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hotelino/feature/home/home_page.dart';
+import 'package:hotelino/routes/main_bootom_nav.dart';
 
 class AppRoute {
   static const String home = '/';
@@ -10,6 +10,6 @@ class AppRoute {
   static const String onboarding = '/onboarding';
 
   static final Map<String, WidgetBuilder> routes = {
-    home: (ctx) => const HomePage()
+    home: (ctx) => const MainBootomNav()
   };
 }
