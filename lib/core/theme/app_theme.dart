@@ -7,7 +7,7 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.light,
       fontFamily: 'sahel',
-  colorSchemeSeed: AppColors.primary,
+      colorSchemeSeed: AppColors.primary,
       appBarTheme: const AppBarTheme(
         elevation: 0,
         titleTextStyle: TextStyle(
@@ -96,9 +96,9 @@ class AppTheme {
       ),
        );
     return baseLight.copyWith(
-      colorScheme: baseLight.colorScheme.copyWith(
+        colorScheme: baseLight.colorScheme.copyWith(
         outline: Colors.grey[500],
-  primaryFixed: AppColors.primary,
+        primaryFixed: AppColors.primary,
         surfaceContainerLow:Colors.grey[200], 
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hotelino/bootstrap.dart';
+import 'package:hotelino/core/theme/app_theme.dart';
 import 'package:hotelino/core/theme/theme_provider.dart';
 import 'package:hotelino/feature/home/data/repositories/hotel_repository.dart';
 import 'package:hotelino/feature/home/data/repositories/profile_repository.dart';
@@ -26,10 +27,14 @@ void main() async {
           ),
         ),
         ChangeNotifierProvider(
-          create: (_) => HomeProvider(HotelRepository(jsonDataService: JsonDataService()))
+          create: (_) =>
+              HomeProvider(HotelRepository(jsonDataService: JsonDataService())),
         ),
         ChangeNotifierProvider(
-          create: (_) => ProfileProvider(ProfileRepository() ,HotelRepository(jsonDataService: JsonDataService()))
+          create: (_) => ProfileProvider(
+            ProfileRepository(),
+            HotelRepository(jsonDataService: JsonDataService()),
+          ),
         ),
       ],
       child: const MyApp(),
@@ -78,8 +83,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           routes: AppRoute.routes,
           initialRoute: AppRoute.home,
           theme: value.brightness == Brightness.light
-              ? ThemeData.light()
-              : ThemeData.dark(),
+              ? AppTheme.lightTheme
+              : AppTheme.darkTheme,
         );
       },
     );
