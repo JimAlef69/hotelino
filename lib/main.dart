@@ -5,6 +5,7 @@ import 'package:hotelino/core/theme/app_theme.dart';
 import 'package:hotelino/core/theme/theme_provider.dart';
 import 'package:hotelino/feature/home/data/repositories/hotel_repository.dart';
 import 'package:hotelino/feature/home/data/repositories/profile_repository.dart';
+import 'package:hotelino/feature/home/presentation/provider/favorite_item_provider.dart';
 import 'package:hotelino/feature/home/presentation/provider/home_provider.dart';
 import 'package:hotelino/feature/home/presentation/provider/profile_provider.dart';
 import 'package:hotelino/routes/app_route.dart';
@@ -18,6 +19,8 @@ void main() async {
   await lazyBootstrap();
   FlutterNativeSplash.remove();
 
+  final hotelRepository = HotelRepository(jsonDataService: JsonDataService());
+
   runApp(
     MultiProvider(
       providers: [
@@ -26,15 +29,12 @@ void main() async {
             WidgetsBinding.instance.platformDispatcher.platformBrightness,
           ),
         ),
+        ChangeNotifierProvider(create: (_) => HomeProvider(hotelRepository)),
         ChangeNotifierProvider(
-          create: (_) =>
-              HomeProvider(HotelRepository(jsonDataService: JsonDataService())),
+          create: (_) => ProfileProvider(ProfileRepository(), hotelRepository),
         ),
         ChangeNotifierProvider(
-          create: (_) => ProfileProvider(
-            ProfileRepository(),
-            HotelRepository(jsonDataService: JsonDataService()),
-          ),
+          create: (_) => FavoriteItemProvider(hotelRepository),
         ),
       ],
       child: const MyApp(),
