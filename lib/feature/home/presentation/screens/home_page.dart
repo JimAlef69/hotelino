@@ -4,6 +4,7 @@ import 'package:hotelino/feature/home/presentation/widgets/ad_banner.dart';
 import 'package:hotelino/feature/home/presentation/widgets/home_appbar.dart';
 import 'package:hotelino/feature/home/presentation/widgets/hotel_list_section.dart';
 import 'package:hotelino/feature/home/presentation/widgets/search_bar.dart';
+import 'package:hotelino/feature/home/presentation/widgets/story_carousel.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -42,6 +43,16 @@ class HomePage extends StatelessWidget {
                   onSeeAllPressed: () {
                     // Navigate to see all special offers
                   },
+                );
+              },
+            ),
+            const SizedBox(height: 16),
+            //story carousel slider
+            Consumer<HomeProvider>(
+              builder: (context, homeProvider, child) {
+                return StoryCarousel(
+                  images: homeProvider.getStoryImages(),
+                  titles: homeProvider.storyTitles,
                 );
               },
             ),
