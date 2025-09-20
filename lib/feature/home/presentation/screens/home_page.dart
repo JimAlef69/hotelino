@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeProvider = Provider.of<HomeProvider>(context);
-    return  Scaffold(
+    return Scaffold(
       appBar: const HomeAppBar(),
       body: SingleChildScrollView(
         child: Column(
@@ -23,14 +23,28 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 16),
             const AdBanner(),
             //use Consumer to listen to changes in HomeProvider
-            Consumer<HomeProvider>(builder: (context, homeProvider, child) {
-              return HotelListSection(
+            Consumer<HomeProvider>(
+              builder: (context, homeProvider, child) {
+                return HotelListSection(
                   title: 'محبوب ترین هتل ها',
                   hotels: homeProvider.getPopularHotels(),
                   onSeeAllPressed: () {
                     // Navigate to see all special offers
-                  });
-            },)
+                  },
+                );
+              },
+            ),
+            Consumer<HomeProvider>(
+              builder: (context, homeProvider, child) {
+                return HotelListSection(
+                  title: 'پیشنهاد ویژه امروز',
+                  hotels: homeProvider.getSpecialOffersHotels(),
+                  onSeeAllPressed: () {
+                    // Navigate to see all special offers
+                  },
+                );
+              },
+            ),
           ],
         ),
       ),
