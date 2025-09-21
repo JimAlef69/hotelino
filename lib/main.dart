@@ -10,6 +10,7 @@ import 'package:hotelino/feature/home/presentation/provider/home_provider.dart';
 import 'package:hotelino/feature/home/presentation/provider/profile_provider.dart';
 import 'package:hotelino/routes/app_route.dart';
 import 'package:hotelino/shared/services/json_data_service.dart';
+import 'package:persian_datetime_picker/persian_datetime_picker.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -80,6 +81,15 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         return MaterialApp(
           title: 'Hotelino',
           debugShowCheckedModeBanner: false,
+          locale: const Locale('fa', 'IR'),
+          supportedLocales: const [
+            Locale('fa', 'IR'), // Persian, Iran
+            Locale('en', 'US'), // Persian, Iran
+          ],
+          localizationsDelegates: const [
+            PersianMaterialLocalizations.delegate,
+            PersianCupertinoLocalizations.delegate, // For Cupertino widgets
+          ],
           routes: AppRoute.routes,
           initialRoute: AppRoute.home,
           theme: value.brightness == Brightness.light
