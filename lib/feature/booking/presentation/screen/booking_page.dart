@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:hotelino/feature/booking/presentation/provider/booking_provider.dart';
 import 'package:hotelino/feature/booking/presentation/widgets/booking_form_field.dart';
 import 'package:hotelino/feature/booking/presentation/widgets/date_picker_field.dart';
-import 'package:persian_datetime_picker/persian_datetime_picker.dart';
+import 'package:hotelino/feature/booking/presentation/widgets/number_text_field.dart';
 import 'package:provider/provider.dart';
 
 class BookingPage extends StatefulWidget {
-  const BookingPage({super.key});
+  static final GlobalKey<BookingPageState> bookingPageKey =
+      GlobalKey<BookingPageState>();
+  BookingPage({Key? key}) : super(key: bookingPageKey);
 
   @override
-  State<BookingPage> createState() => _BookingPageState();
+  State<BookingPage> createState() => BookingPageState();
 }
 
-class _BookingPageState extends State<BookingPage> {
+class BookingPageState extends State<BookingPage> {
   final _formKey = GlobalKey<FormState>();
 
-  void _resetForm() {
+  void resetForm() {
     Future.delayed(const Duration(milliseconds: 100), () {
       _formKey.currentState?.reset();
       setState(() {});
@@ -97,7 +99,7 @@ class _BookingPageState extends State<BookingPage> {
                         },
                       ),
                       const SizedBox(height: 8),
-                                BookingFormField(
+                      BookingFormField(
                         title: 'تعداد نفرات',
                         hint: 'تعداد نفرات را وارد کنید',
                         initialValue: bookingProvider.booking.numberOfGuests,
@@ -112,6 +114,21 @@ class _BookingPageState extends State<BookingPage> {
                           if (newValue != null) {
                             bookingProvider.setNumberOfGuest(newValue);
                           }
+                        },
+                      ),
+                      const SizedBox(height: 8),
+                      NumberFormField(
+                        initialValue: bookingProvider.booking.phoneNumber,
+                        onSaved: (newValue) {
+                          if (newValue != null) {
+                            bookingProvider.setPhoneNumber(newValue);
+                          }
+                        },
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'لطفا شماره تماس را وارد کنید';
+                          }
+                          return null;
                         },
                       ),
                     ],

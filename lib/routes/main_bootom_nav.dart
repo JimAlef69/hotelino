@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hotelino/core/constants/constants.dart';
+import 'package:hotelino/core/utils/keyboard.dart';
 import 'package:hotelino/feature/booking/presentation/screen/booking_page.dart';
 import 'package:hotelino/feature/home/presentation/screens/home_page.dart';
 import 'package:hotelino/test.dart';
@@ -26,7 +27,7 @@ class _MainBootomNavState extends State<MainBootomNav> {
     return [
       const HomePage(),
       const FavPage(),
-      const BookingPage(),
+      BookingPage(),
       const ProfilePage(),
     ];
   }
@@ -37,7 +38,15 @@ class _MainBootomNavState extends State<MainBootomNav> {
       context,
       screens: _buildScreens(),
       controller: _controller,
-      onItemSelected: (value) {},
+      onItemSelected: (index) {
+        unfocusEditors(
+          context,
+        ); //for deaactivating keyboard and focus from text fields in all pages
+
+        if (index != 2) {
+          BookingPage.bookingPageKey.currentState?.resetForm();
+        }
+      },
       items: _navBarsItems(),
       backgroundColor: Theme.of(context).colorScheme.surface,
       navBarStyle: NavBarStyle.style7,
