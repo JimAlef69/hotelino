@@ -94,25 +94,27 @@ class AppTheme {
           fontWeight: FontWeight.bold,
         ),
       ),
-       );
+    );
     return baseLight.copyWith(
-        colorScheme: baseLight.colorScheme.copyWith(
+      colorScheme: baseLight.colorScheme.copyWith(
         outline: Colors.grey[500],
         primaryFixed: AppColors.primary,
-        surfaceContainerLow:Colors.grey[200], 
+        surfaceContainerLow: Colors.grey[200],
+      ),
+      inputDecorationTheme: baseLight.inputDecorationTheme.copyWith(
+        fillColor: baseLight.colorScheme.surface,
       ),
     );
   }
 
-  
-    // - - - -  -- - - -- - -- - -  -  - - -- - 
+  // - - - -  -- - - -- - -- - -  -  - - -- -
 
-      static ThemeData get darkTheme {
+  static ThemeData get darkTheme {
     final baseDark = ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
       fontFamily: 'sahel',
-  colorSchemeSeed: AppColors.primary,
+      colorSchemeSeed: AppColors.primary,
       appBarTheme: const AppBarTheme(
         elevation: 0,
         titleTextStyle: TextStyle(
@@ -174,17 +176,11 @@ class AppTheme {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(
-            width: 1.5,
-            color: AppColors.darkBorder,
-          ),
+          borderSide: const BorderSide(width: 1.5, color: AppColors.darkBorder),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(
-            width: 1.5,
-            color: AppColors.darkBorder,
-          ),
+          borderSide: const BorderSide(width: 1.5, color: AppColors.darkBorder),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -200,11 +196,14 @@ class AppTheme {
           fontWeight: FontWeight.bold,
         ),
       ),
-       );
+    );
     return baseDark.copyWith(
       colorScheme: baseDark.colorScheme.copyWith(
         outline: Colors.grey[500],
-         primaryFixed: AppColors.primary,
+        primaryFixed: AppColors.primary,
+      ),
+      inputDecorationTheme: baseDark.inputDecorationTheme.copyWith(
+        fillColor: baseDark.colorScheme.surface,
       ),
     );
   }
