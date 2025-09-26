@@ -78,11 +78,12 @@ class _BookingPageState extends State<BookingPage> {
                           }
                         },
                       ),
-                      const SizedBox(height: 8,),
+                      const SizedBox(height: 12),
                       DatePickerField(
                         title: 'تاریخ رزرو',
                         hint: 'تاریخ رفت و برگشت را انتخاب کنید',
-                        initialValue: bookingProvider.booking.cehckInOutRangeDate,
+                        initialValue:
+                            bookingProvider.booking.cehckInOutRangeDate,
                         validator: (value) {
                           if (value == null) {
                             return 'لطفا تاریخ رفت و برگشت را انتخاب کنید';
@@ -94,7 +95,25 @@ class _BookingPageState extends State<BookingPage> {
                             bookingProvider.setRangeDate(newValue);
                           }
                         },
-                      ),  
+                      ),
+                      const SizedBox(height: 8),
+                                BookingFormField(
+                        title: 'تعداد نفرات',
+                        hint: 'تعداد نفرات را وارد کنید',
+                        initialValue: bookingProvider.booking.numberOfGuests,
+                        keyboardType: TextInputType.number,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'لطفا تعداد نفرات را وارد کنید';
+                          }
+                          return null;
+                        },
+                        onSaved: (newValue) {
+                          if (newValue != null) {
+                            bookingProvider.setNumberOfGuest(newValue);
+                          }
+                        },
+                      ),
                     ],
                   ),
                 );
