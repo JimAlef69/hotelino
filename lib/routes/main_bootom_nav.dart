@@ -22,7 +22,7 @@ class _MainBootomNavState extends State<MainBootomNav> {
     super.initState();
   }
 
-  List<StatelessWidget> _buildScreens() {
+  List<Widget> _buildScreens() {
     return [
       const HomePage(),
       const FavPage(),
@@ -46,7 +46,8 @@ class _MainBootomNavState extends State<MainBootomNav> {
       confineToSafeArea: true,
       animationSettings: const NavBarAnimationSettings(
         navBarItemAnimation: ItemAnimationSettings(
-          duration: Duration(microseconds: 200,),curve: Curves.easeIn
+          duration: Duration(microseconds: 200),
+          curve: Curves.easeIn,
         ),
       ),
     );
