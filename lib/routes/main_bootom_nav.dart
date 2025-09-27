@@ -4,6 +4,7 @@ import 'package:hotelino/core/constants/constants.dart';
 import 'package:hotelino/core/utils/keyboard.dart';
 import 'package:hotelino/feature/booking/presentation/screen/booking_page.dart';
 import 'package:hotelino/feature/home/presentation/screens/home_page.dart';
+import 'package:hotelino/feature/profile/presentation/profile_page.dart';
 import 'package:hotelino/test.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
