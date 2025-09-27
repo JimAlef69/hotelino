@@ -133,7 +133,16 @@ class BookingPageState extends State<BookingPage> {
                           return null;
                         },
                       ),
-                      TermsWidget(initialValue: false),
+                      TermsWidget(
+                        initialValue: false,
+                        validator: (value) {
+                          if (value == null || value == false) {
+                            return 'لطفا قوانین برنامه را تایید کنید';
+                          }
+                          return null;
+                        },
+                        onSaved: (newValue) {},
+                      ),
                       const SizedBox(height: 8),
                       SizedBox(
                         width: double.infinity,
