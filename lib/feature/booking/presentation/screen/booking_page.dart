@@ -3,6 +3,7 @@ import 'package:hotelino/feature/booking/presentation/provider/booking_provider.
 import 'package:hotelino/feature/booking/presentation/widgets/booking_form_field.dart';
 import 'package:hotelino/feature/booking/presentation/widgets/date_picker_field.dart';
 import 'package:hotelino/feature/booking/presentation/widgets/number_text_field.dart';
+import 'package:hotelino/feature/booking/presentation/widgets/terms_widget.dart';
 import 'package:provider/provider.dart';
 
 class BookingPage extends StatefulWidget {
@@ -20,6 +21,7 @@ class BookingPageState extends State<BookingPage> {
   void resetForm() {
     Future.delayed(const Duration(milliseconds: 100), () {
       _formKey.currentState?.reset();
+      TermsWidget.termsKey.currentState?.resetCheckbox();
       setState(() {});
     });
   }
@@ -130,6 +132,28 @@ class BookingPageState extends State<BookingPage> {
                           }
                           return null;
                         },
+                      ),
+                      TermsWidget(initialValue: false),
+                      const SizedBox(height: 8),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                    'درخواست رزرو با موفقیت ثبت شد! 🎉',
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                ),
+                              );
+
+                              resetForm();
+                            }
+                          },
+                          child: const Text('جستجو هتل ها'),
+                        ),
                       ),
                     ],
                   ),
