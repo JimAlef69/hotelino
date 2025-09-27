@@ -6,6 +6,8 @@ import 'package:hotelino/core/utils/price_formatter.dart';
 import 'package:hotelino/feature/home/data/models/hotel.dart';
 import 'package:hotelino/feature/home/presentation/provider/favorite_item_provider.dart';
 import 'package:hotelino/feature/home/presentation/widgets/animated_favorite_button.dart';
+import 'package:hotelino/feature/hotel_detail/presentation/hotel_detail_page.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 
 class HotelCard extends StatelessWidget {
@@ -20,12 +22,12 @@ class HotelCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        // PersistentNavBarNavigator.pushNewScreen(
-        //   context,
-        //   withNavBar: true,
-        //   screen: HotelDetailPage(hotelId: hotel.id),
-        //   pageTransitionAnimation: PageTransitionAnimation.cupertino,
-        // );
+        PersistentNavBarNavigator.pushNewScreen(
+          context,
+          withNavBar: true,
+          screen: HotelDetailPage(hotelId: hotel.id),
+          pageTransitionAnimation: PageTransitionAnimation.cupertino,
+        );
       },
       child: SizedBox(
         width: 280,

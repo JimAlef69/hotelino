@@ -242,10 +242,16 @@ class HotelDetailPage extends StatelessWidget {
                               textDirection: TextDirection.rtl,
                             ),
                           ),
-                          Text(
-                            'موقعیت مکانی هتل روی نقشه',
-                            style: textTheme.headlineSmall,
-                            textDirection: TextDirection.rtl,
+                          Expanded(
+                            child: Text(
+                              'موقعیت مکانی هتل روی نقشه',
+                              style: textTheme.headlineSmall?.copyWith(
+                                fontSize: 16,
+                              ),
+                              textDirection: TextDirection.rtl,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                         ],
                       ),
