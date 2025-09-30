@@ -13,7 +13,7 @@ class AppColors {
   //light colors
   static const Color lightText = Colors.black;
   static const Color lightHint = Colors.grey;
-  static const Color lightInputFill = Color(0xFFF5F5F5);
+  static const Color lightInputFill = Color(0xFFF5F5F4);
   static const Color lightBorder = Colors.grey;
   static const Color lightFocusedBorder = Colors.brown;
 
