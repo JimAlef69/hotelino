@@ -24,13 +24,15 @@ jobs:
         with:
           node-version: 20
 
-      # Install semantic-release and its plugins
-      - name: Install dependencies
+      # Install semantic-release and its plugins (no npm plugin!)
+      - name: Install semantic-release
         run: |
           npm install -g semantic-release \
             @semantic-release/changelog \
             @semantic-release/git \
-            @semantic-release/github
+            @semantic-release/github \
+            @semantic-release/commit-analyzer \
+            @semantic-release/release-notes-generator
 
       # Run semantic-release to generate changelog, bump version, and create GitHub release
       - name: Run Semantic Release
@@ -49,7 +51,7 @@ jobs:
           flutter-version: 3.35.3
           channel: stable
 
-      # Install Flutter dependencies (pubspec.yaml)
+      # Install Flutter dependencies
       - name: Install Flutter dependencies
         run: flutter pub get
 
@@ -57,11 +59,11 @@ jobs:
       - name: Build release APK
         run: flutter build apk --release
 
-      # Rename APK with version number (e.g., lifeguard-v1.0.0.apk)
+      # Rename APK with version number
       - name: Rename APK with version
         run: |
           mkdir -p build/artifacts
-          cp build/app/outputs/flutter-apk/release/app-release.apk build/artifacts/hotelino-${{ env.TAG_NAME }}.apk
+          cp build/app/outputs/flutter-apk/app-release.apk build/artifacts/hotelino-${{ env.TAG_NAME }}.apk
 
       # Upload APK to the GitHub release created by semantic-release
       - name: Upload APK to Release
