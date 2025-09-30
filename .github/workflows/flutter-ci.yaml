@@ -1,0 +1,51 @@
+name: Flutter CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest   # Runs on the latest version of Ubuntu
+
+    steps:
+      # --- 1) Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # --- 2) Setup Flutter with your version (FVM equivalent)
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.35.3   # fvm flutter version
+          channel: stable           #stable chanel
+
+      # --- 3) Cache pub dependencies
+      - name: Cache pub dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pub-cache
+            build
+          key: ${{ runner.os }}-pub-${{ hashFiles('pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      # --- 4) Install dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # --- 5) Dart format (fails if not formatted)
+      - name: Dart Format
+        run: dart format --output=none --set-exit-if-changed .
+
+      # --- 6) Flutter analyze
+      - name: Flutter Analyze
+        run: flutter analyze
+
+      # --- 7) Run tests
+      - name: Run Tests
+        if: ${{ hashFiles('test/**/*.dart') != '' }}
+        run: flutter test --no-pub --reporter expanded
