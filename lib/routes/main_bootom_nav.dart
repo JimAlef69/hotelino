@@ -20,7 +20,7 @@ class _MainBootomNavState extends State<MainBootomNav> {
 
   @override
   void initState() {
-    _controller = PersistentTabController(initialIndex: 0);
+    _controller = PersistentTabController();
     super.initState();
   }
 
@@ -51,9 +51,9 @@ class _MainBootomNavState extends State<MainBootomNav> {
       items: _navBarsItems(),
       backgroundColor: Theme.of(context).colorScheme.surface,
       navBarStyle: NavBarStyle.style7,
-      stateManagement: true,
-      handleAndroidBackButtonPress: true,
-      confineToSafeArea: true,
+      // stateManagement: true,
+      // handleAndroidBackButtonPress: true,
+      // confineToSafeArea: true,
       animationSettings: const NavBarAnimationSettings(
         navBarItemAnimation: ItemAnimationSettings(
           duration: Duration(microseconds: 200),

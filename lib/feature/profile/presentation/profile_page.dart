@@ -23,7 +23,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
     if (picked != null) {
       setState(() {
-        print(picked.path);
         _image = File(picked.path);
       });
     }

@@ -36,7 +36,7 @@ class HotelDetailPage extends StatelessWidget {
             slivers: [
               SliverAppBar(
                 floating: true,
-                pinned: false,
+                // pinned: false,
                 flexibleSpace: FlexibleSpaceBar(
                   background: GestureDetector(
                     onLongPress: () {
@@ -46,8 +46,7 @@ class HotelDetailPage extends StatelessWidget {
                           myImageUrl: hotel.images.first,
                         ),
                         withNavBar: false,
-                        pageTransitionAnimation:
-                            PageTransitionAnimation.cupertino,
+                        // pageTransitionAnimation: PageTransitionAnimation.cupertino,
                       );
                     },
                     child: Image.network(
@@ -186,8 +185,7 @@ class HotelDetailPage extends StatelessWidget {
                                         myImageUrl: hotel.images[index],
                                       ),
                                       withNavBar: false,
-                                      pageTransitionAnimation:
-                                          PageTransitionAnimation.cupertino,
+                                      // pageTransitionAnimation: PageTransitionAnimation.cupertino,
                                     );
                                   },
                                   child: ClipRRect(
@@ -233,8 +231,7 @@ class HotelDetailPage extends StatelessWidget {
                                   hotelName: hotel.name,
                                 ),
                                 withNavBar: false,
-                                pageTransitionAnimation:
-                                    PageTransitionAnimation.cupertino,
+                                // pageTransitionAnimation: PageTransitionAnimation.cupertino,
                               );
                             },
                             child: Text(
@@ -301,7 +298,7 @@ class HotelDetailPage extends StatelessWidget {
                                             horizontal: 4,
                                             vertical: 2,
                                           ),
-                                          color: Colors.white.withOpacity(0.8),
+                                          color: Colors.white,
                                           child: Text(
                                             hotel.name,
                                             style: textTheme.bodySmall!

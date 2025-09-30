@@ -23,7 +23,7 @@ class FullScreenMapPage extends StatelessWidget {
         options: MapOptions(
           initialCenter: LatLng(latitude, longitude),
           initialZoom: 15.0,
-          interactionOptions: InteractionOptions(flags: InteractiveFlag.all),
+          // interactionOptions: const InteractionOptions(flags: InteractiveFlag.all),
         ),
         children: [
           TileLayer(
@@ -44,7 +44,7 @@ class FullScreenMapPage extends StatelessWidget {
                         horizontal: 4,
                         vertical: 2,
                       ),
-                      color: Colors.white.withOpacity(0.8),
+                      color: Colors.white,
                       child: Text(
                         hotelName,
                         style: textTheme.bodySmall!.copyWith(

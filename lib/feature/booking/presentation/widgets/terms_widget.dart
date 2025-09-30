@@ -3,8 +3,8 @@ import 'package:hotelino/core/constants/constants.dart';
 import 'package:hotelino/core/utils/keyboard.dart';
 
 class TermsWidget extends StatefulWidget {
-  static final GlobalKey<_TermsWidgetState> termsKey =
-      GlobalKey<_TermsWidgetState>();
+  static final GlobalKey<TermsWidgetState> termsKey =
+      GlobalKey<TermsWidgetState>();
   final bool initialValue;
   final FormFieldValidator<bool>? validator;
   final FormFieldSetter<bool>? onSaved;
@@ -17,10 +17,10 @@ class TermsWidget extends StatefulWidget {
   }) : super(key: termsKey);
 
   @override
-  State<TermsWidget> createState() => _TermsWidgetState();
+  State<TermsWidget> createState() => TermsWidgetState();
 }
 
-class _TermsWidgetState extends State<TermsWidget> {
+class TermsWidgetState extends State<TermsWidget> {
   late bool isChecked;
 
   void resetCheckbox() {
