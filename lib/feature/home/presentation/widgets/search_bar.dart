@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hotelino/core/constants/constants.dart';
-
 class SearchBarWidget extends StatelessWidget {
   const SearchBarWidget({super.key});
 

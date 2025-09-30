@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final homeProvider = Provider.of<HomeProvider>(context);
+    Provider.of<HomeProvider>(context);
     return Scaffold(
       appBar: const HomeAppBar(),
       body: SingleChildScrollView(

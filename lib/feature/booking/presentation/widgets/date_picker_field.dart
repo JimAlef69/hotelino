@@ -32,7 +32,7 @@ class _DatePickerFieldState extends State<DatePickerField> {
       validator: widget.validator,
       onSaved: widget.onSaved,
       builder: (FormFieldState<JalaliRange?> state) {
-        String dateText = state.value == null
+        final String dateText = state.value == null
             ? ''
             : 'رفت: ${state.value!.start.formatFullDate()}\nبرگشت: ${state.value!.end.formatFullDate()}';
 

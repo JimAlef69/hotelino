@@ -10,6 +10,7 @@ import 'package:hotelino/feature/hotel_detail/presentation/hotel_detail_page.dar
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class HotelCard extends StatelessWidget {
   Hotel hotel;
 
@@ -26,7 +27,6 @@ class HotelCard extends StatelessWidget {
           context,
           withNavBar: true,
           screen: HotelDetailPage(hotelId: hotel.id),
-          pageTransitionAnimation: PageTransitionAnimation.cupertino,
         );
       },
       child: SizedBox(
