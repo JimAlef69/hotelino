@@ -17,7 +17,7 @@ class HomeProvider extends ChangeNotifier {
   final HomePageData _homePageData = HomePageDataConstants.homePageData;
   HomePageData get homePageData => _homePageData;
 
-  fetchHotels() async {
+  Future<void> fetchHotels() async {
     _hotels = await _hotelRepository.fetchHotels();
     notifyListeners();
   }

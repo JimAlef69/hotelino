@@ -36,6 +36,7 @@ class ProfileProvider extends ChangeNotifier {
       .toList();
 
   void addRecentlyViewed(String hotelId) {
+    // ignore: collection_methods_unrelated_type
     if (!recentlyViewedHotels.contains(hotelId)) {
       _recentlyViewedHotels.add(hotelId);
       notifyListeners();

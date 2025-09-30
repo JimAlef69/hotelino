@@ -77,8 +77,8 @@ class StoryCarouselState extends State<StoryCarousel> {
             options: CarouselOptions(
               height: 250,
               viewportFraction: 1.0,
-              enableInfiniteScroll: true,
-              autoPlay: false,
+              // enableInfiniteScroll: true,
+              // autoPlay: false,
               onPageChanged: (index, reason) {
                 setState(() {
                   _currentIndex = index;
