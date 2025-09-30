@@ -61,13 +61,13 @@ jobs:
       - name: Rename APK with version
         run: |
           mkdir -p build/artifacts
-          cp build/app/outputs/flutter-apk/release/app-release.apk build/artifacts/lifeguard-${{ env.TAG_NAME }}.apk
+          cp build/app/outputs/flutter-apk/release/app-release.apk build/artifacts/hotelino-${{ env.TAG_NAME }}.apk
 
       # Upload APK to the GitHub release created by semantic-release
       - name: Upload APK to Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ env.TAG_NAME }}
-          files: build/artifacts/lifeguard-${{ env.TAG_NAME }}.apk
+          files: build/artifacts/hotelino-${{ env.TAG_NAME }}.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
