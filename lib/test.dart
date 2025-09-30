@@ -8,5 +8,3 @@ class FavPage extends StatelessWidget {
     return const Scaffold();
   }
 }
-
-

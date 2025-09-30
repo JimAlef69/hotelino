@@ -8,10 +8,11 @@ class BookingModel {
   String numberOfGuests;
   String phoneNumber;
 
-  BookingModel(
-      {this.fullName = '',
-      this.destination = '',
-      this.cehckInOutRangeDate,
-      this.numberOfGuests = '',
-      this.phoneNumber = ''});
+  BookingModel({
+    this.fullName = '',
+    this.destination = '',
+    this.cehckInOutRangeDate,
+    this.numberOfGuests = '',
+    this.phoneNumber = '',
+  });
 }

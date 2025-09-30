@@ -15,7 +15,8 @@ class AnimatedFavoriteButton extends StatefulWidget {
   AnimatedFavoriteButtonState createState() => AnimatedFavoriteButtonState();
 }
 
-class AnimatedFavoriteButtonState extends State<AnimatedFavoriteButton> with SingleTickerProviderStateMixin {
+class AnimatedFavoriteButtonState extends State<AnimatedFavoriteButton>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
 
@@ -26,9 +27,10 @@ class AnimatedFavoriteButtonState extends State<AnimatedFavoriteButton> with Sin
       vsync: this,
       duration: const Duration(milliseconds: 250),
     );
-    _scaleAnimation = Tween<double>(begin: 1.0, end: 1.25).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.elasticOut),
-    );
+    _scaleAnimation = Tween<double>(
+      begin: 1.0,
+      end: 1.25,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.elasticOut));
 
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {

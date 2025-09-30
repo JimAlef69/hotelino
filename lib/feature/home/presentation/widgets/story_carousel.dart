@@ -7,11 +7,7 @@ class StoryCarousel extends StatefulWidget {
   final List<String> images;
   final List<String> titles;
 
-  const StoryCarousel({
-    super.key,
-    required this.images,
-    required this.titles,
-  });
+  const StoryCarousel({super.key, required this.images, required this.titles});
 
   @override
   StoryCarouselState createState() => StoryCarouselState();
@@ -20,7 +16,8 @@ class StoryCarousel extends StatefulWidget {
 class StoryCarouselState extends State<StoryCarousel> {
   int _currentIndex = 0;
   late Timer _timer;
-  final CarouselSliderController _carouselController = CarouselSliderController();
+  final CarouselSliderController _carouselController =
+      CarouselSliderController();
 
   @override
   void initState() {
@@ -126,7 +123,9 @@ class StoryCarouselState extends State<StoryCarousel> {
                       height: 4,
                       margin: const EdgeInsets.symmetric(horizontal: 2),
                       decoration: BoxDecoration(
-                        color: _currentIndex >= index ? Colors.white : Colors.grey.shade300,
+                        color: _currentIndex >= index
+                            ? Colors.white
+                            : Colors.grey.shade300,
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),

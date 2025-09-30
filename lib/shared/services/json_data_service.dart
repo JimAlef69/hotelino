@@ -13,9 +13,7 @@ class JsonDataService {
     final List<dynamic> hotelsList = jsonData['hotels'];
 
     return hotelsList
-        .map(
-          (hotel) => Hotel.fromJson(hotel as Map<String, dynamic>),
-        )
+        .map((hotel) => Hotel.fromJson(hotel as Map<String, dynamic>))
         .toList();
   }
 }

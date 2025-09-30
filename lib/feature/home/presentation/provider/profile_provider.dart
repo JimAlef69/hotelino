@@ -31,8 +31,9 @@ class ProfileProvider extends ChangeNotifier {
 
   final List<String> _recentlyViewedHotels = [];
 
-  List<Hotel> get recentlyViewedHotels =>
-      _hotels.where((hotel) => _recentlyViewedHotels.contains(hotel.id)).toList();
+  List<Hotel> get recentlyViewedHotels => _hotels
+      .where((hotel) => _recentlyViewedHotels.contains(hotel.id))
+      .toList();
 
   void addRecentlyViewed(String hotelId) {
     if (!recentlyViewedHotels.contains(hotelId)) {

@@ -1,5 +1,3 @@
-
-
 import 'package:hotelino/feature/home/data/models/bed_type.dart';
 import 'package:hotelino/feature/home/data/models/location.dart';
 
@@ -37,36 +35,36 @@ class Hotel {
   });
 
   factory Hotel.fromJson(Map<String, dynamic> json) => Hotel(
-        id: json['id'],
-        name: json['name'],
-        description: json['description'],
-        images: List<String>.from(json['images'].map((x) => x)),
-        rating: json['rating'].toDouble(),
-        reviewCount: json['reviewCount'],
-        pricePerNight: json['pricePerNight'],
-        location: Location.fromJson(json['location']),
-        maxOccupancy: json['maxOccupancy'],
-        city: json['city'],
-        country: json['country'],
-        address: json['address'],
-        bedType: BedType.fromJson(json['bedType']),
-        amenities: List<String>.from(json['amenities'].map((x) => x)),
-      );
+    id: json['id'],
+    name: json['name'],
+    description: json['description'],
+    images: List<String>.from(json['images'].map((x) => x)),
+    rating: json['rating'].toDouble(),
+    reviewCount: json['reviewCount'],
+    pricePerNight: json['pricePerNight'],
+    location: Location.fromJson(json['location']),
+    maxOccupancy: json['maxOccupancy'],
+    city: json['city'],
+    country: json['country'],
+    address: json['address'],
+    bedType: BedType.fromJson(json['bedType']),
+    amenities: List<String>.from(json['amenities'].map((x) => x)),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'description': description,
-        'images': List<dynamic>.from(images.map((x) => x)),
-        'rating': rating,
-        'reviewCount': reviewCount,
-        'pricePerNight': pricePerNight,
-        'location': location.toJson(),
-        'maxOccupancy': maxOccupancy,
-        'city': city,
-        'country': country,
-        'address': address,
-        'bedType': bedType.toJson(),
-        'amenities': List<dynamic>.from(amenities.map((x) => x)),
-      };
+    'id': id,
+    'name': name,
+    'description': description,
+    'images': List<dynamic>.from(images.map((x) => x)),
+    'rating': rating,
+    'reviewCount': reviewCount,
+    'pricePerNight': pricePerNight,
+    'location': location.toJson(),
+    'maxOccupancy': maxOccupancy,
+    'city': city,
+    'country': country,
+    'address': address,
+    'bedType': bedType.toJson(),
+    'amenities': List<dynamic>.from(amenities.map((x) => x)),
+  };
 }

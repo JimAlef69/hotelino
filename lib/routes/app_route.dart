@@ -10,6 +10,6 @@ class AppRoute {
   static const String onboarding = '/onboarding';
 
   static final Map<String, WidgetBuilder> routes = {
-    home: (ctx) => const MainBootomNav()
+    home: (ctx) => const MainBootomNav(),
   };
 }

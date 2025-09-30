@@ -7,8 +7,12 @@ class FullScreenMapPage extends StatelessWidget {
   final double longitude;
   final String hotelName;
 
-  const FullScreenMapPage(
-      {super.key, required this.latitude, required this.longitude, required this.hotelName});
+  const FullScreenMapPage({
+    super.key,
+    required this.latitude,
+    required this.longitude,
+    required this.hotelName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,48 +20,49 @@ class FullScreenMapPage extends StatelessWidget {
 
     return Scaffold(
       body: FlutterMap(
-          options: MapOptions(
-              initialCenter: LatLng(latitude, longitude),
-              initialZoom: 15.0,
-              interactionOptions: InteractionOptions(flags: InteractiveFlag.all)),
-          children: [
-            TileLayer(
-              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-              userAgentPackageName: 'ir.dunijet.hotelino',
-            ),
-            MarkerLayer(
-              markers: [
-                Marker(
-                  point: LatLng(latitude, longitude),
-                  width: 80,
-                  height: 80,
-                  child: Column(
-                    children: [
-                      const Icon(
-                        Icons.location_pin,
-                        color: Colors.red,
-                        size: 40,
+        options: MapOptions(
+          initialCenter: LatLng(latitude, longitude),
+          initialZoom: 15.0,
+          interactionOptions: InteractionOptions(flags: InteractiveFlag.all),
+        ),
+        children: [
+          TileLayer(
+            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            userAgentPackageName: 'ir.dunijet.hotelino',
+          ),
+          MarkerLayer(
+            markers: [
+              Marker(
+                point: LatLng(latitude, longitude),
+                width: 80,
+                height: 80,
+                child: Column(
+                  children: [
+                    const Icon(Icons.location_pin, color: Colors.red, size: 40),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 4,
+                        vertical: 2,
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                        color: Colors.white.withOpacity(0.8),
-                        child: Text(
-                          hotelName,
-                          style: textTheme.bodySmall!.copyWith(
-                            color: Colors.black,
-                          ),
-                          textDirection: TextDirection.rtl,
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
+                      color: Colors.white.withOpacity(0.8),
+                      child: Text(
+                        hotelName,
+                        style: textTheme.bodySmall!.copyWith(
+                          color: Colors.black,
                         ),
+                        textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ]),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

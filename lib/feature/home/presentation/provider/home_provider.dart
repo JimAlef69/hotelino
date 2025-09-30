@@ -4,7 +4,6 @@ import 'package:hotelino/feature/home/data/models/homepage_data.dart';
 import 'package:hotelino/feature/home/data/models/hotel.dart';
 import 'package:hotelino/feature/home/data/repositories/hotel_repository.dart';
 
-
 class HomeProvider extends ChangeNotifier {
   final HotelRepository _hotelRepository;
 
@@ -26,15 +25,21 @@ class HomeProvider extends ChangeNotifier {
   // Filter Methods ----------------------------------------------------------------------------------------------
 
   List<Hotel> getPopularHotels() {
-    return _hotels.where((hotel) => _homePageData.popular.contains(hotel.id)).toList();
+    return _hotels
+        .where((hotel) => _homePageData.popular.contains(hotel.id))
+        .toList();
   }
 
   List<Hotel> getSpecialOffersHotels() {
-    return _hotels.where((hotel) => _homePageData.specialOffers.contains(hotel.id)).toList();
+    return _hotels
+        .where((hotel) => _homePageData.specialOffers.contains(hotel.id))
+        .toList();
   }
 
   List<Hotel> getNewestHotels() {
-    return _hotels.where((hotel) => _homePageData.newest.contains(hotel.id)).toList();
+    return _hotels
+        .where((hotel) => _homePageData.newest.contains(hotel.id))
+        .toList();
   }
 
   // Story Section ------------------------------------------------------------------------------------------------
@@ -44,7 +49,11 @@ class HomeProvider extends ChangeNotifier {
     return shuffledHotels.take(3).map((hotel) => hotel.images[0]).toList();
   }
 
-  final List<String> _storyTitles = ['امکانات رفاهی کامل', 'اقامت در قلب شهر', 'لوکس ترین هتل ها'];
+  final List<String> _storyTitles = [
+    'امکانات رفاهی کامل',
+    'اقامت در قلب شهر',
+    'لوکس ترین هتل ها',
+  ];
 
   List<String> get storyTitles => _storyTitles;
 }

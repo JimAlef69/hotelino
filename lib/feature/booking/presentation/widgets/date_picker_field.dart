@@ -39,10 +39,7 @@ class _DatePickerFieldState extends State<DatePickerField> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(
-              widget.title,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
+            Text(widget.title, style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 8),
             Directionality(
               textDirection: TextDirection.rtl,
@@ -50,7 +47,8 @@ class _DatePickerFieldState extends State<DatePickerField> {
                 onTap: () async {
                   final picked = await showPersianDateRangePicker(
                     context: context,
-                    initialDateRange: state.value ??
+                    initialDateRange:
+                        state.value ??
                         JalaliRange(
                           start: Jalali.now(),
                           end: Jalali.now().addDays(3),
@@ -71,7 +69,9 @@ class _DatePickerFieldState extends State<DatePickerField> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                        color: state.hasError ? Theme.of(context).colorScheme.error : AppColors.lightBorder,
+                        color: state.hasError
+                            ? Theme.of(context).colorScheme.error
+                            : AppColors.lightBorder,
                         width: state.hasError ? 1 : 1.5,
                       ),
                     ),

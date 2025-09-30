@@ -23,11 +23,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               Stack(
                 children: [
                   IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.notifications_none,
-                        color: Colors.grey,
-                      )),
+                    onPressed: () {},
+                    icon: Icon(Icons.notifications_none, color: Colors.grey),
+                  ),
                   Consumer<ProfileProvider>(
                     builder: (context, profileProvider, child) {
                       return profileProvider.profile?.notifications != null &&
@@ -37,22 +35,27 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                               top: 14,
                               child: CircleAvatar(
                                 radius: 4,
-                                backgroundColor: Theme.of(context).colorScheme.primary,
+                                backgroundColor: Theme.of(
+                                  context,
+                                ).colorScheme.primary,
                               ),
                             )
                           : SizedBox();
                     },
-                  )
+                  ),
                 ],
               ),
               IconButton(
-                  onPressed: () {
-                    themeProvider.toggleTheme();
-                  },
-                  icon: Icon(
-                    themeProvider.brightness == Brightness.light ? Icons.dark_mode : Icons.light_mode,
-                    color: Colors.grey,
-                  ))
+                onPressed: () {
+                  themeProvider.toggleTheme();
+                },
+                icon: Icon(
+                  themeProvider.brightness == Brightness.light
+                      ? Icons.dark_mode
+                      : Icons.light_mode,
+                  color: Colors.grey,
+                ),
+              ),
             ],
           ),
           Consumer<ProfileProvider>(
@@ -63,18 +66,18 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                     profileProvider.profile?.name ?? 'کاربر',
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  const SizedBox(
-                    width: 8,
-                  ),
+                  const SizedBox(width: 8),
                   CircleAvatar(
                     radius: 20,
-                    backgroundImage: NetworkImage(profileProvider.profile?.avatarUrl ??
-                        'https://www.w3schools.com/howto/img_avatar.png'),
-                  )
+                    backgroundImage: NetworkImage(
+                      profileProvider.profile?.avatarUrl ??
+                          'https://www.w3schools.com/howto/img_avatar.png',
+                    ),
+                  ),
                 ],
               );
             },
-          )
+          ),
         ],
       ),
     );

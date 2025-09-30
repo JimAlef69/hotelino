@@ -20,9 +20,10 @@ class _FullScreenImageShowerState extends State<FullScreenImageShower> {
       backgroundColor: Colors.black,
       body: Center(
         child: PhotoView(
-            initialScale: PhotoViewComputedScale.contained * 1,
-            backgroundDecoration: const BoxDecoration(color: Colors.black),
-            imageProvider: NetworkImage(networkUrl(widget.myImageUrl))),
+          initialScale: PhotoViewComputedScale.contained * 1,
+          backgroundDecoration: const BoxDecoration(color: Colors.black),
+          imageProvider: NetworkImage(networkUrl(widget.myImageUrl)),
+        ),
       ),
     );
   }

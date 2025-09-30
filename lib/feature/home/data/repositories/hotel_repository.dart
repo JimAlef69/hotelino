@@ -1,4 +1,3 @@
-
 // dependency
 
 import 'package:hotelino/feature/home/data/models/hotel.dart' show Hotel;
@@ -14,12 +13,8 @@ class HotelRepository {
   }
 
   Future<Hotel> getHotelById(String id) {
-    return jsonDataService.loadHotels().then(
-      (hotels) {
-        return hotels.firstWhere(
-          (hotel) => hotel.id == id,
-        );
-      },
-    );
+    return jsonDataService.loadHotels().then((hotels) {
+      return hotels.firstWhere((hotel) => hotel.id == id);
+    });
   }
 }
